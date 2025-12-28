@@ -4,6 +4,14 @@ type Props = {
   currentPrahar: string | null;
 };
 
+const PRAHAR_LABEL_MAP: Record<string, string> = {
+  MORNING: "Morning",
+  AFTERNOON: "Afternoon",
+  EVENING: "Evening",
+  NIGHT: "Night",
+};
+
+
 const prahars = [
   {
     icon: Sunrise,
@@ -31,7 +39,10 @@ const prahars = [
   },
 ];
 
+
 const PraharTimeline = ({ currentPrahar }: Props) => {
+  const normalizedPrahar = currentPrahar ? PRAHAR_LABEL_MAP[currentPrahar] : null;
+
   return (
     <div className="glass-strong rounded-3xl p-6 md:p-8">
       <h3 className="text-lg font-semibold text-center mb-6">
@@ -41,7 +52,7 @@ const PraharTimeline = ({ currentPrahar }: Props) => {
       <div className="grid grid-cols-2 gap-4">
         {prahars.map((prahar) => {
           const Icon = prahar.icon;
-          const isActive = currentPrahar === prahar.label;
+          const isActive = normalizedPrahar === prahar.label;
 
           return (
             <div

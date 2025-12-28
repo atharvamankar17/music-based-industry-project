@@ -18,12 +18,38 @@ def get_prahar_from_timestamp(timestamp: str) -> str:
     # DEBUG (keep this for now)
     print("IST TIME →", ist_time.strftime("%H:%M"))
 
-    # Prahar mapping (STRICT)
-    if 6 <= hour < 12:
-        return "Morning"
-    elif 12 <= hour < 18:
-        return "Afternoon"
-    elif 18 <= hour < 24:
-        return "Evening"
+
+# Determine fine prahar
+    if 2 <= hour < 4:
+        fine = "PRE_DAWN"
+    elif 4 <= hour < 6:
+        fine = "DAWN"
+    elif 6 <= hour < 9:
+        fine = "EARLY_MORNING"
+    elif 9 <= hour < 12:
+        fine = "LATE_MORNING"
+    elif 12 <= hour < 16:
+        fine = "AFTERNOON"
+    elif 16 <= hour < 18:
+        fine = "LATE_AFTERNOON"
+    elif 18 <= hour < 21:
+        fine = "EVENING"
     else:
-        return "Night"
+        fine = "NIGHT"
+
+    FINE_TO_COARSE_PRAHAR = {
+    "PRE_DAWN": "NIGHT",
+    "DAWN": "MORNING",
+    "EARLY_MORNING": "MORNING",
+    "LATE_MORNING": "MORNING",
+    "AFTERNOON": "AFTERNOON",
+    "LATE_AFTERNOON": "AFTERNOON",
+    "EVENING": "EVENING",
+    "NIGHT": "NIGHT",
+}
+    coarse = FINE_TO_COARSE_PRAHAR[fine]
+
+    print("FINE PRAHAR →", fine)
+    print("COARSE PRAHAR →", coarse)
+
+    return coarse
