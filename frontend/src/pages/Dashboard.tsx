@@ -18,13 +18,15 @@ import {
 
 const DashboardHome = ({
   currentPrahar,
+  raaga,
 }: {
   currentPrahar: string | null;
+  raaga: string;
 }) => {
   return (
     <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
       <div className="lg:col-span-2">
-        <RaagaPlayer />
+        <RaagaPlayer raaga={raaga} />
       </div>
 
       <div>
@@ -109,7 +111,7 @@ const Dashboard = () => {
 
     const response = await fetchRecommendation({
       mood: data.mood ?? "",
-      genre: data.genres[0],      // backend-ready
+      genre: data.genres[0],
       language: data.languages[0],
       timestamp: now.toISOString(),
     });
@@ -171,7 +173,7 @@ const Dashboard = () => {
                 Raaga {recommendation.raaga}
               </p>
               <p className="text-sm text-muted-foreground">
-                {recommendation.tempo}
+                Prahar-based recommendation
               </p>
             </div>
           )}
@@ -180,6 +182,7 @@ const Dashboard = () => {
           {isMainDashboard ? (
             <DashboardHome
               currentPrahar={recommendation?.prahar ?? null}
+              raaga={recommendation?.raaga ?? "—"}
             />
           ) : (
             <Outlet />
