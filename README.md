@@ -1,6 +1,6 @@
-# Prahar Music Zen
+# SwarPrahar
 
-Prahar Music Zen is a time-aware, mood-assisted music recommendation system inspired by **Indian classical Prahar theory** and powered by **lightweight Gen-AI**.  
+SwarPrahar is a time-aware, mood-assisted music recommendation system inspired by **Indian classical Prahar theory** and powered by **lightweight Gen-AI**.  
 It recommends **Spotify-playable songs** based on the time of day, optional user mood, selected genre, and language.
 
 ---
@@ -49,9 +49,9 @@ The system ensures **musical correctness first**, using AI only for creative son
 
 ## Project Structure
 
-# Prahar Music Zen
+# SwarPrahar
 
-Prahar Music Zen is a time-aware, mood-assisted music recommendation system inspired by **Indian classical Prahar theory** and powered by **lightweight Gen-AI**.  
+SwarPrahar is a time-aware, mood-assisted music recommendation system inspired by **Indian classical Prahar theory** and powered by **lightweight Gen-AI**.  
 It recommends **Spotify-playable songs** based on the time of day, optional user mood, selected genre, and language.
 
 ---
